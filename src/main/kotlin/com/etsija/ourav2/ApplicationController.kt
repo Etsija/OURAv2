@@ -11,9 +11,19 @@ class ApplicationController {
         return "index"
     }
 
-    @GetMapping("/contact")
-    fun contact(): String {
-        return "pages-contact"
+    @GetMapping("/activity")
+    fun activity(): String {
+        return "/activity/index"
+    }
+
+    @GetMapping("/readiness")
+    fun readiness(): String {
+        return "/readiness/index"
+    }
+
+    @GetMapping("/sleep")
+    fun sleep(): String {
+        return "/sleep/index"
     }
 
 }
