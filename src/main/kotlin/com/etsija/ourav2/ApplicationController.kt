@@ -26,4 +26,9 @@ class ApplicationController {
         return "/sleep/index"
     }
 
+    @GetMapping("/settings")
+    fun settings(): String {
+        return "/settings/index"
+    }
+
 }
