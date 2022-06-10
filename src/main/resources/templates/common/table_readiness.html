@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<body>
+
+    <div layout:fragment="content">
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Readiness Data</h5>
+                        <p>This shows Readiness data from the OURA API.</p>
+
+                        <!-- Table with stripped rows -->
+                        <table class="table datatable">
+                            <thead>
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Score</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="readiness: ${readinesses}">
+                                <td th:text="${readiness.summaryDate}"></td>
+                                <td th:text="${readiness.score}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!-- End Table with stripped rows -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
