@@ -4,5 +4,5 @@ import com.etsija.ourav2.model.Activity
 
 interface ActivityDataSource {
 
-    fun retrieveActivityAll(): Collection<Activity>
+    fun retrieveAll(): Collection<Activity>
 }

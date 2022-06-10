@@ -13,5 +13,5 @@ class MockReadinessDataSource : ReadinessDataSource {
         Readiness("2020-06-02", 70)
     )
 
-    override fun retrieveReadinessAll(): Collection<Readiness> = readinesses
+    override fun retrieveAll(): Collection<Readiness> = readinesses
 }

@@ -15,7 +15,7 @@ class NetworkActivityDataSource(
     @Autowired private val restTemplate: RestTemplate
 ) : ActivityDataSource {
 
-    override fun retrieveActivityAll(): Collection<Activity> {
+    override fun retrieveAll(): Collection<Activity> {
         val response: ResponseEntity<ActivityList> =
             restTemplate.getForEntity("https://api.ouraring.com/v1/activity?access_token=QY5M3RS6V2AWLHMXXR4HAGJVXNSJRNPL")
 

@@ -5,5 +5,5 @@ import com.etsija.ourav2.model.Sleep
 
 interface SleepDataSource {
 
-    fun retrieveSleepAll(): Collection<Sleep>
+    fun retrieveAll(): Collection<Sleep>
 }

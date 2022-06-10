@@ -9,5 +9,5 @@ import org.springframework.stereotype.Service
 @Service
 class ActivityService(@Qualifier("network_activity") private val dataSource: ActivityDataSource) {
 
-    fun getActivityAll(): Collection<Activity> = dataSource.retrieveActivityAll()
+    fun getAll(): Collection<Activity> = dataSource.retrieveAll()
 }

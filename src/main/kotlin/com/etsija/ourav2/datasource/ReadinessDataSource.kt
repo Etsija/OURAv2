@@ -4,5 +4,5 @@ import com.etsija.ourav2.model.Readiness
 
 interface ReadinessDataSource {
 
-    fun retrieveReadinessAll(): Collection<Readiness>
+    fun retrieveAll(): Collection<Readiness>
 }

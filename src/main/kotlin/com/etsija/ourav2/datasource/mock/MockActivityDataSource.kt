@@ -13,5 +13,5 @@ class MockActivityDataSource : ActivityDataSource {
         Activity("2020-06-02", 600, 10000, 80)
     )
 
-    override fun retrieveActivityAll(): Collection<Activity> = activities
+    override fun retrieveAll(): Collection<Activity> = activities
 }

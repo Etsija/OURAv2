@@ -16,7 +16,7 @@ class NetworkSleepDataSource(
     @Autowired private val restTemplate: RestTemplate
 ) : SleepDataSource {
 
-    override fun retrieveSleepAll(): Collection<Sleep> {
+    override fun retrieveAll(): Collection<Sleep> {
         val response: ResponseEntity<SleepList> =
             restTemplate.getForEntity("https://api.ouraring.com/v1/sleep?access_token=QY5M3RS6V2AWLHMXXR4HAGJVXNSJRNPL")
 

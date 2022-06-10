@@ -8,5 +8,5 @@ import org.springframework.stereotype.Service
 @Service
 class SleepService(@Qualifier("network_sleep") private val dataSource: SleepDataSource) {
 
-    fun getSleepAll(): Collection<Sleep> = dataSource.retrieveSleepAll()
+    fun getAll(): Collection<Sleep> = dataSource.retrieveAll()
 }

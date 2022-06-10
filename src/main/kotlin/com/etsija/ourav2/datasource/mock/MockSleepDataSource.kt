@@ -13,5 +13,5 @@ class MockSleepDataSource : SleepDataSource {
         Sleep("2020-06-04", "2022-06-05T02:40:31+03:00", "2022-06-05T10:46:31+03:00", 85, 64, 81),
     )
 
-    override fun retrieveSleepAll(): Collection<Sleep> = sleeps
+    override fun retrieveAll(): Collection<Sleep> = sleeps
 }

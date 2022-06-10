@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RestController
 class SleepController(private val service: SleepService) {
 
     @GetMapping
-    fun getSleepAll(): Collection<Sleep> = service.getSleepAll()
+    fun getAll(): Collection<Sleep> = service.getAll()
 }

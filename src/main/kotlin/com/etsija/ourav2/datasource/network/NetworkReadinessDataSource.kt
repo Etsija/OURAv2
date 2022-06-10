@@ -16,7 +16,7 @@ class NetworkReadinessDataSource(
     @Autowired private val restTemplate: RestTemplate
 ) : ReadinessDataSource {
 
-    override fun retrieveReadinessAll(): Collection<Readiness> {
+    override fun retrieveAll(): Collection<Readiness> {
         val response: ResponseEntity<ReadinessList> =
             restTemplate.getForEntity("https://api.ouraring.com/v1/readiness?access_token=QY5M3RS6V2AWLHMXXR4HAGJVXNSJRNPL")
 

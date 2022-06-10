@@ -9,5 +9,5 @@ import org.springframework.stereotype.Service
 @Service
 class ReadinessService(@Qualifier("network_readiness") private val dataSource: ReadinessDataSource) {
 
-    fun getReadinessAll(): Collection<Readiness> = dataSource.retrieveReadinessAll()
+    fun getAll(): Collection<Readiness> = dataSource.retrieveAll()
 }

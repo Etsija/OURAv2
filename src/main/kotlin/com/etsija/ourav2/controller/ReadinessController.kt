@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RestController
 class ReadinessController(private val service: ReadinessService) {
 
     @GetMapping
-    fun getReadinessAll(): Collection<Readiness> = service.getReadinessAll()
+    fun getAll(): Collection<Readiness> = service.getAll()
 }
