@@ -3,6 +3,7 @@ package com.etsija.ourav2.datasource.network
 
 import com.etsija.ourav2.datasource.ReadinessDataSource
 import com.etsija.ourav2.datasource.network.dto.ReadinessList
+import com.etsija.ourav2.helpers.HttpHelpers
 import com.etsija.ourav2.model.Readiness
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpEntity
@@ -20,23 +21,13 @@ class NetworkReadinessDataSource(
     @Autowired private val restTemplate: RestTemplate
 ) : ReadinessDataSource {
 
-    val url: String = "https://api.ouraring.com/v1/readiness"
-    val token: String = "QY5M3RS6V2AWLHMXXR4HAGJVXNSJRNPL"
-    val z: ZoneId = ZoneId.of("Europe/Helsinki")
-    val endDate: String = LocalDate.now(z).toString()
-    // Show data for last 30 days
-    val startDate: String = LocalDate.now(z).minusDays(30).toString()
-    val headers: HttpHeaders = HttpHeaders()
-
     override fun retrieveAll(): Collection<Readiness> {
 
-        headers.set("Host", "api.ouraring.com")
-        headers.setBearerAuth(token)
-
+        val headers = HttpHelpers.getHttpHeaders()
         val request: HttpEntity<ReadinessList> = HttpEntity<ReadinessList>(headers)
         val response: ResponseEntity<ReadinessList> =
             restTemplate.exchange(
-                url + "?start=" + startDate + "&end=" + endDate,
+                HttpHelpers.READINESS_URL + HttpHelpers.getStartEnd(30),
                 HttpMethod.GET,
                 request,
                 ReadinessList::class.java
