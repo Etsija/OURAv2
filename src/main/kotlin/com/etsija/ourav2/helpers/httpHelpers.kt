@@ -4,7 +4,7 @@ import org.springframework.http.HttpHeaders
 import java.time.LocalDate
 import java.time.ZoneId
 
-public class HttpHelpers {
+class HttpHelpers {
     companion object {
 
         fun getHttpHeaders(): HttpHeaders {
