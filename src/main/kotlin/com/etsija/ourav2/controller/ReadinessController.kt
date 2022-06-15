@@ -22,6 +22,6 @@ class ReadinessController(private val service: ReadinessService) {
         var readinesses = service.getAll()
 
         model.addAttribute("readinesses", readinesses)
-        return "common/table_readiness"
+        return "readiness/table_readiness"
     }
 }

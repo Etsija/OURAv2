@@ -22,6 +22,6 @@ class SleepController(private val service: SleepService) {
         var sleeps = service.getAll()
 
         model.addAttribute("sleeps", sleeps)
-        return "common/table_sleep"
+        return "sleep/table_sleep"
     }
 }

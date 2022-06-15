@@ -19,9 +19,20 @@ class ActivityController(private val service: ActivityService) {
     @GetMapping("/table_activity")
     fun getTable(model: Model): String {
 
-        var activities = service.getAll()
+        val activities = service.getAll()
 
         model.addAttribute("activities", activities)
-        return "common/table_activity"
+        return "activity/table_activity"
     }
+
+    @GetMapping("/graph_activity")
+    fun getGraph(model: Model): String {
+
+        val activities = service.getAll()
+
+        model.addAttribute("activities", activities)
+        return "activity/graph_activity"
+    }
+
+
 }
