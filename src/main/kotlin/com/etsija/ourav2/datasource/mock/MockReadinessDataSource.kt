@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository
 class MockReadinessDataSource : ReadinessDataSource {
 
     val readinesses = listOf(
-        Readiness("2020-05-31", 60),
-        Readiness("2020-06-01", 65),
-        Readiness("2020-06-02", 70)
+        Readiness("2020-06-09", 61, 93, 93, 96, 85, 93, 87),
+        Readiness("2020-06-10", 61, 93, 93, 96, 85, 93, 87),
+        Readiness("2020-06-11", 61, 93, 93, 96, 85, 93, 87)
     )
 
     override fun retrieveAll(): Collection<Readiness> = readinesses

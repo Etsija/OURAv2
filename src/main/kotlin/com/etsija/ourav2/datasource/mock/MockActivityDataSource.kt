@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository
 class MockActivityDataSource : ActivityDataSource {
 
     val activities = listOf(
-        Activity("2020-05-31", 400, 8000, 70),
-        Activity("2020-06-01", 500, 9000, 75),
-        Activity("2020-06-02", 600, 10000, 80)
+        Activity("2020-06-09", 450, 863, 3179, 8, -7.2, 15272, 15321, 97),
+        Activity("2020-06-01", 450, 500, 2300, 8, -0.5, 8000, 8500, 90),
+        Activity("2020-06-02", 450, 500, 2300, 8, -0.5, 8000, 8500, 90)
     )
 
     override fun retrieveAll(): Collection<Activity> = activities
