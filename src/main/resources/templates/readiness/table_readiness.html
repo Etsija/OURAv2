@@ -20,12 +20,24 @@
                             <thead>
                             <tr>
                                 <th scope="col">Date</th>
+                                <th scope="col">Activity Balance</th>
+                                <th scope="col">HRV Balance</th>
+                                <th scope="col">Recovery Index</th>
+                                <th scope="col">Resting HR</th>
+                                <th scope="col">Sleep Balance</th>
+                                <th scope="col">Temperature</th>
                                 <th scope="col">Score</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr th:each="readiness: ${readinesses}">
                                 <td th:text="${readiness.summaryDate}"></td>
+                                <td th:text="${readiness.scoreActivityBalance}"></td>
+                                <td th:text="${readiness.scoreHRVBalance}"></td>
+                                <td th:text="${readiness.scoreRecoveryIndex}"></td>
+                                <td th:text="${readiness.scoreRestingHR}"></td>
+                                <td th:text="${readiness.scoreSleepBalance}"></td>
+                                <td th:text="${readiness.scoreTemperature}"></td>
                                 <td th:text="${readiness.score}"></td>
                             </tr>
                             </tbody>
