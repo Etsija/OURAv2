@@ -23,7 +23,7 @@ class NetworkReadinessDataSource(
         val request: HttpEntity<ReadinessList> = HttpEntity<ReadinessList>(headers)
         val response: ResponseEntity<ReadinessList> =
             restTemplate.exchange(
-                HttpHelpers.READINESS_URL + HttpHelpers.getStartEnd(30),
+                HttpHelpers.READINESS_URL + HttpHelpers.getStartEnd(HttpHelpers.HISTORY_DAYS),
                 HttpMethod.GET,
                 request,
                 ReadinessList::class.java

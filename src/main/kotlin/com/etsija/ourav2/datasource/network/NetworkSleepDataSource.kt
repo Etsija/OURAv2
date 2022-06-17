@@ -24,7 +24,7 @@ class NetworkSleepDataSource(
         val request: HttpEntity<SleepList> = HttpEntity<SleepList>(headers)
         val response: ResponseEntity<SleepList> =
             restTemplate.exchange(
-                HttpHelpers.SLEEP_URL + HttpHelpers.getStartEnd(30),
+                HttpHelpers.SLEEP_URL + HttpHelpers.getStartEnd(HttpHelpers.HISTORY_DAYS),
                 HttpMethod.GET,
                 request,
                 SleepList::class.java

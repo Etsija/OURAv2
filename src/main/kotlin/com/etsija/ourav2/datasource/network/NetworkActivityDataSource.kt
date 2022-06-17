@@ -23,7 +23,7 @@ class NetworkActivityDataSource(
         val request: HttpEntity<ActivityList> = HttpEntity<ActivityList>(headers)
         val response: ResponseEntity<ActivityList> =
             restTemplate.exchange(
-                HttpHelpers.ACTIVITY_URL + HttpHelpers.getStartEnd(30),
+                HttpHelpers.ACTIVITY_URL + HttpHelpers.getStartEnd(HttpHelpers.HISTORY_DAYS),
                 HttpMethod.GET,
                 request,
                 ActivityList::class.java
