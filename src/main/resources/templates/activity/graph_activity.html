@@ -13,195 +13,189 @@
 
         <div class="row">
 
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Activity Score</h5>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Activity Score</h5>
 
-                        <!-- Score Chart -->
-                        <div id="scoreChart"></div>
+                    <!-- Score Chart -->
+                    <div id="scoreChart"></div>
 
-                        <script>
-                            var x = activities.map(x => x["summaryDate"]);
-                            var y_score = activities.map(x => x["score"]);
-                            document.addEventListener("DOMContentLoaded", () => {
-                                new ApexCharts(document.querySelector("#scoreChart"), {
-                                    series: [{
-                                        name: "Score",
-                                        data: y_score
-                                    }],
-                                    chart: {
-                                        height: 350,
-                                        type: 'area',
-                                        zoom: {
-                                            enabled: true
-                                        }
-                                    },
-                                    dataLabels: {
-                                        enabled: false
-                                    },
-                                    stroke: {
-                                        curve: 'smooth'
-                                    },
-                                    grid: {
-                                        row: {
-                                            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                                            opacity: 0.5
-                                        },
-                                    },
-                                    xaxis: {
-                                        categories: x,
-                                        type: 'datetime'
-                                    },
-                                    yaxis: {
-                                        min: 0,
-                                        max: 100,
-                                        tickAmount: 5
+                    <script>
+                        var x = activities.map(x => x["summaryDate"]);
+                        var y_score = activities.map(x => x["score"]);
+                        document.addEventListener("DOMContentLoaded", () => {
+                            new ApexCharts(document.querySelector("#scoreChart"), {
+                                series: [{
+                                    name: "Score",
+                                    data: y_score
+                                }],
+                                chart: {
+                                    height: 350,
+                                    type: 'area',
+                                    zoom: {
+                                        enabled: true
                                     }
-                                }).render();
-                            });
-                        </script> <!-- End Score Chart -->
+                                },
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                stroke: {
+                                    curve: 'smooth'
+                                },
+                                grid: {
+                                    row: {
+                                        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                                        opacity: 0.5
+                                    },
+                                },
+                                xaxis: {
+                                    categories: x,
+                                    type: 'datetime'
+                                },
+                                yaxis: {
+                                    min: 0,
+                                    max: 100,
+                                    tickAmount: 5
+                                }
+                            }).render();
+                        });
+                    </script> <!-- End Score Chart -->
 
-                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Calories Burned</h5>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Calories Burned</h5>
 
-                        <!-- Calory Chart -->
-                        <div id="caloryChart"></div>
+                    <!-- Calory Chart -->
+                    <div id="caloryChart"></div>
 
-                        <script>
-                            var y_calTotal = activities.map(x => x["calTotal"]);
-                            var y_calActive = activities.map(x => x["calActive"]);
-                            var y_calTarget = activities.map(x => x["calTarget"]);
-                            document.addEventListener("DOMContentLoaded", () => {
-                                new ApexCharts(document.querySelector("#caloryChart"), {
-                                    series: [
-                                    {
-                                        name: "Total kCal",
-                                        type: 'area',
-                                        data: y_calTotal
-                                    },
-                                    {
-                                        name: "Active kCal",
-                                        type: 'area',
-                                        data: y_calActive
-                                    },
-                                    {
-                                        name: "Target kCal",
-                                        type: 'line',
-                                        data: y_calTarget
-                                    }],
-                                    chart: {
-                                        height: 350,
-                                        type: 'area',
-                                        zoom: {
-                                            enabled: true
-                                        }
-                                    },
-                                    colors: ['#ea6245', '#00E396', '#000000'],
-                                    dataLabels: {
-                                        enabled: false
-                                    },
-                                    stroke: {
-                                        curve: 'smooth'
-                                    },
-                                    grid: {
-                                        row: {
-                                            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                                            opacity: 0.5
-                                        },
-                                    },
-                                    xaxis: {
-                                        categories: x,
-                                        type: 'datetime'
-                                    },
-                                    legend: {
-                                        show: false
+                    <script>
+                        var y_calTotal = activities.map(x => x["calTotal"]);
+                        var y_calActive = activities.map(x => x["calActive"]);
+                        var y_calTarget = activities.map(x => x["calTarget"]);
+                        document.addEventListener("DOMContentLoaded", () => {
+                            new ApexCharts(document.querySelector("#caloryChart"), {
+                                series: [
+                                {
+                                    name: "Total kCal",
+                                    type: 'area',
+                                    data: y_calTotal
+                                },
+                                {
+                                    name: "Active kCal",
+                                    type: 'area',
+                                    data: y_calActive
+                                },
+                                {
+                                    name: "Target kCal",
+                                    type: 'line',
+                                    data: y_calTarget
+                                }],
+                                chart: {
+                                    height: 350,
+                                    type: 'area',
+                                    zoom: {
+                                        enabled: true
                                     }
-                                }).render();
-                            });
-                        </script> <!-- End Calory Chart -->
+                                },
+                                colors: ['#ea6245', '#00E396', '#000000'],
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                stroke: {
+                                    curve: 'smooth'
+                                },
+                                grid: {
+                                    row: {
+                                        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                                        opacity: 0.5
+                                    },
+                                },
+                                xaxis: {
+                                    categories: x,
+                                    type: 'datetime'
+                                },
+                                legend: {
+                                    show: false
+                                }
+                            }).render();
+                        });
+                    </script> <!-- End Calory Chart -->
 
-                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Kilometers compared to target</h5>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Kilometers compared to target</h5>
 
-                        <!-- Target Chart -->
-                        <div id="targetChart"></div>
+                    <!-- Target Chart -->
+                    <div id="targetChart"></div>
 
-                        <script>
-                            var y_kmTarget = activities.map(x => x["kmTarget"]);
-                            var y_kmToTarget = activities.map(x => x["kmToTarget"] * -1.0);
-                            document.addEventListener("DOMContentLoaded", () => {
-                                new ApexCharts(document.querySelector("#targetChart"), {
-                                    series: [
-                                    {
-                                        name: "Target",
-                                        type: 'line',
-                                        data: y_kmTarget
+                    <script>
+                        var y_kmTarget = activities.map(x => x["kmTarget"]);
+                        var y_kmToTarget = activities.map(x => x["kmToTarget"] * -1.0);
+                        document.addEventListener("DOMContentLoaded", () => {
+                            new ApexCharts(document.querySelector("#targetChart"), {
+                                series: [
+                                {
+                                    name: "Target",
+                                    type: 'line',
+                                    data: y_kmTarget
+                                },
+                                {
+                                    name: "Over Target",
+                                    type: 'bar',
+                                    data: y_kmToTarget
+                                }],
+                                chart: {
+                                    height: 350,
+                                    type: 'line',
+                                    zoom: {
+                                        enabled: true
                                     },
-                                    {
-                                        name: "Over Target",
-                                        type: 'bar',
-                                        data: y_kmToTarget
-                                    }],
-                                    chart: {
-                                        height: 350,
-                                        type: 'line',
-                                        zoom: {
-                                            enabled: true
-                                        },
-                                        //background: '#d3d3d3'
-                                    },
-                                    colors: [
-                                        function({ value, seriesIndex, w }) {
-                                            console.log(w.config.series[seriesIndex].name);
-                                            console.log(seriesIndex);
-                                            if (seriesIndex == 0) {
-                                                return '#000000'
+                                    //background: '#d3d3d3'
+                                },
+                                colors: [
+                                    function({ value, seriesIndex, w }) {
+                                        console.log(w.config.series[seriesIndex].name);
+                                        console.log(seriesIndex);
+                                        if (seriesIndex == 0) {
+                                            return '#000000'
+                                        } else {
+                                            if (value < 0) {
+                                                return '#f15b46'
                                             } else {
-                                                if (value < 0) {
-                                                    return '#f15b46'
-                                                } else {
-                                                    return '#008000'
-                                                }
+                                                return '#008000'
                                             }
                                         }
-                                    ],
-                                    dataLabels: {
-                                        enabled: false
-                                    },
-                                    stroke: {
-                                        curve: 'smooth'
-                                    },
-                                    grid: {
-                                        row: {
-                                            colors: ['#ffff99'], // takes an array which will be repeated on columns
-                                            opacity: 0.5
-                                        },
-                                    },
-                                    xaxis: {
-                                        categories: x,
-                                        type: 'datetime'
-                                    },
-                                    legend: {
-                                        show: false
                                     }
-                                }).render();
-                            });
-                        </script> <!-- End Target Chart -->
+                                ],
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                stroke: {
+                                    curve: 'smooth'
+                                },
+                                grid: {
+                                    row: {
+                                        colors: ['#ffff99'], // takes an array which will be repeated on columns
+                                        opacity: 0.5
+                                    },
+                                },
+                                xaxis: {
+                                    categories: x,
+                                    type: 'datetime'
+                                },
+                                legend: {
+                                    show: false
+                                }
+                            }).render();
+                        });
+                    </script> <!-- End Target Chart -->
 
-                    </div>
                 </div>
             </div>
 

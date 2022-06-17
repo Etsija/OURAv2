@@ -28,7 +28,7 @@ class HttpHelpers {
             return "?start=" + getTodayMinus(days) + "&end=" + getToday()
         }
 
-        const val HISTORY_DAYS = 50L
+        const val HISTORY_DAYS = 90L
         const val TOKEN = "QY5M3RS6V2AWLHMXXR4HAGJVXNSJRNPL"
         const val ACTIVITY_URL = "https://api.ouraring.com/v1/activity"
         const val READINESS_URL = "https://api.ouraring.com/v1/readiness"
