@@ -129,72 +129,61 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Kilometers compared to target</h5>
+                    <h5 class="card-title">Kilometers Compared to Target</h5>
 
-                    <!-- Target Chart -->
-                    <div id="targetChart"></div>
+                    <!-- Km Chart -->
+                    <canvas id="kmChart" style="max-height: 400px;"></canvas>
 
                     <script>
                         var y_kmTarget = activities.map(x => x["kmTarget"]);
                         var y_kmToTarget = activities.map(x => x["kmToTarget"] * -1.0);
                         document.addEventListener("DOMContentLoaded", () => {
-                            new ApexCharts(document.querySelector("#targetChart"), {
-                                series: [
-                                {
-                                    name: "Target",
-                                    type: 'line',
-                                    data: y_kmTarget
+                            Chart.defaults.plugins.legend.display = false;
+                            const colours = y_kmToTarget.map((value) => value < 0 ? 'red' : 'green');
+                            new Chart(document.querySelector('#kmChart'), {
+                                type: 'bar',
+                                data: {
+                                    labels: x,
+                                    datasets: [{
+                                        label: 'Target km',
+                                        name: 'Target',
+                                        type: 'line',
+                                        data: y_kmTarget,
+                                        fill: true,
+                                        borderColor: 'blue',
+                                        tension: 0.4
+                                    }, {
+                                        label: 'Km compared to target',
+                                        name: 'To Target',
+                                        type: 'bar',
+                                        data: y_kmToTarget,
+                                        borderColor: colours,
+                                        backgroundColor: colours,
+                                        tension: 0.4
+                                    }]
                                 },
-                                {
-                                    name: "Over Target",
-                                    type: 'bar',
-                                    data: y_kmToTarget
-                                }],
-                                chart: {
-                                    height: 350,
-                                    type: 'line',
-                                    zoom: {
-                                        enabled: true
-                                    },
-                                    //background: '#d3d3d3'
-                                },
-                                colors: [
-                                    function({ value, seriesIndex, w }) {
-                                        console.log(w.config.series[seriesIndex].name);
-                                        console.log(seriesIndex);
-                                        if (seriesIndex == 0) {
-                                            return '#000000'
-                                        } else {
-                                            if (value < 0) {
-                                                return '#f15b46'
-                                            } else {
-                                                return '#008000'
+                                options: {
+                                    scales: {
+                                        x: {
+                                            type: 'time',
+                                            time: {
+                                                unit: 'day',
+                                                displayFormats: {
+                                                    day: 'dd MMM'
+                                                }
+                                            },
+                                            grid: {
+                                                display: false
                                             }
+                                        },
+                                        y: {
+                                            beginAtZero: true
                                         }
                                     }
-                                ],
-                                dataLabels: {
-                                    enabled: false
-                                },
-                                stroke: {
-                                    curve: 'smooth'
-                                },
-                                grid: {
-                                    row: {
-                                        colors: ['#ffff99'], // takes an array which will be repeated on columns
-                                        opacity: 0.5
-                                    },
-                                },
-                                xaxis: {
-                                    categories: x,
-                                    type: 'datetime'
-                                },
-                                legend: {
-                                    show: false
                                 }
-                            }).render();
+                            });
                         });
-                    </script> <!-- End Target Chart -->
+                    </script> <!-- End Km Chart -->
 
                 </div>
             </div>
