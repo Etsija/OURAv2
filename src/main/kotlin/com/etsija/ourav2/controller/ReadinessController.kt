@@ -24,4 +24,13 @@ class ReadinessController(private val service: ReadinessService) {
         model.addAttribute("readinesses", readinesses)
         return "readiness/table_readiness"
     }
+
+    @GetMapping("/graph_readiness")
+    fun getGraph(model: Model): String {
+
+        val readinesses = service.getAll()
+
+        model.addAttribute("readinesses", readinesses)
+        return "readiness/graph_readiness"
+    }
 }

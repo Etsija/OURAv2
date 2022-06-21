@@ -30,7 +30,7 @@
                                     data: y_score
                                 }],
                                 chart: {
-                                    height: 350,
+                                    height: 400,
                                     type: 'area',
                                     zoom: {
                                         enabled: true
@@ -94,7 +94,7 @@
                                     data: y_calTarget
                                 }],
                                 chart: {
-                                    height: 350,
+                                    height: 400,
                                     type: 'area',
                                     zoom: {
                                         enabled: true
@@ -151,6 +151,7 @@
                                         data: y_kmTarget,
                                         fill: true,
                                         borderColor: 'blue',
+                                        backgroundColor: 'rgba(176, 224, 230, 0.6)',
                                         tension: 0.4
                                     }, {
                                         label: 'Km compared to target',
@@ -184,6 +185,81 @@
                             });
                         });
                     </script> <!-- End Km Chart -->
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Kilometers Compared to Target (test ApexCharts)</h5>
+
+                    <!-- Km Chart Test -->
+                    <div id="kmChartTest"></div>
+
+                    <script>
+                        var y_kmTarget = activities.map(x => x["kmTarget"]);
+                        var y_kmToTarget = activities.map(x => x["kmToTarget"] * -1.0);
+                        document.addEventListener("DOMContentLoaded", () => {
+                            new ApexCharts(document.querySelector("#kmChartTest"), {
+                                series: [
+                                {
+                                    name: "Target",
+                                    type: 'area',
+                                    data: y_kmTarget
+                                },
+                                {
+                                    name: "Over Target",
+                                    type: 'bar',
+                                    data: y_kmToTarget
+                                }],
+                                chart: {
+                                    height: 400,
+                                    type: 'bar',
+                                    zoom: {
+                                        enabled: true
+                                    }
+                                },
+                                colors: [
+                                    function({ value, seriesIndex, w }) {
+                                        //console.log(w.config.series[seriesIndex].name);
+                                        //console.log(seriesIndex);
+                                        if (seriesIndex == 0) {
+                                            return '#9897a9'
+                                        } else {
+                                            if (value < 0) {
+                                                return '#f15b46'
+                                            } else {
+                                                if (value < 0) {
+                                                    return '#f15b46'
+                                                } else {
+                                                    return '#008000'
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                stroke: {
+                                    curve: 'smooth'
+                                },
+                                grid: {
+                                    row: {
+                                        colors: ['#ffff99'], // takes an array which will be repeated on columns
+                                        opacity: 0.5
+                                    },
+                                },
+                                xaxis: {
+                                    categories: x,
+                                    type: 'datetime'
+                                },
+                                legend: {
+                                    show: false
+                                }
+                            }).render();
+                        });
+                    </script> <!-- End Km Chart Test -->
 
                 </div>
             </div>
