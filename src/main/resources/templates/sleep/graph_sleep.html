@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<body>
+
+<div layout:fragment="content">
+
+    <script th:inline="javascript">
+            var sleeps = [[${sleeps}]]
+        </script>
+
+    <div class="row">
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Sleep Score</h5>
+
+                <!-- Score Chart -->
+                <div id="scoreChart"></div>
+
+                <script>
+                        var x = sleeps.map(x => x["summaryDate"]);
+                        var y_score = sleeps.map(x => x["score"]);
+                        document.addEventListener("DOMContentLoaded", () => {
+                            new ApexCharts(document.querySelector("#scoreChart"), {
+                                series: [{
+                                    name: "Score",
+                                    data: y_score
+                                }],
+                                chart: {
+                                    height: 400,
+                                    type: 'area',
+                                    zoom: {
+                                        enabled: true
+                                    }
+                                },
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                stroke: {
+                                    curve: 'smooth'
+                                },
+                                grid: {
+                                    row: {
+                                        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                                        opacity: 0.5
+                                    },
+                                },
+                                xaxis: {
+                                    categories: x,
+                                    type: 'datetime'
+                                },
+                                yaxis: {
+                                    min: 0,
+                                    max: 100,
+                                    tickAmount: 5
+                                }
+                            }).render();
+                        });
+                    </script> <!-- End Score Chart -->
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Bedtime</h5>
+
+                <!-- Activity and Recovery Score Chart -->
+                <div id="bedtimeChart"></div>
+
+                <script>
+                        var y_bedtimeStart = sleeps.map(x => x["bedtimeStart"].substring(11, 15));
+                        var y_bedtimeEnd = sleeps.map(x => x["bedtimeEnd"].substring(11, 15));
+                        document.addEventListener("DOMContentLoaded", () => {
+                            new ApexCharts(document.querySelector("#bedtimeChart"), {
+                                series: [
+                                {
+                                    name: "Bedtime Start",
+                                    type: 'area',
+                                    data: y_bedtimeStart
+                                },
+                                {
+                                    name: "Bedtime End",
+                                    type: 'area',
+                                    data: y_bedtimeEnd
+                                }],
+                                chart: {
+                                    height: 400,
+                                    type: 'area',
+                                    zoom: {
+                                        enabled: true
+                                    }
+                                },
+                                colors: ['#ea6245', '#00E396', '#000000'],
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                stroke: {
+                                    curve: 'smooth'
+                                },
+                                grid: {
+                                    row: {
+                                        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                                        opacity: 0.5
+                                    },
+                                },
+                                xaxis: {
+                                    categories: x,
+                                    type: 'datetime'
+                                },
+                                yaxis: {
+                                    categories: ['12', '9', '6', '3', '0', '21', '18'],
+                                    type: 'datetime',
+                                    labels: {
+                                        format: 'HH:mm'
+                                    }
+                                },
+                                legend: {
+                                    show: false
+                                }
+                            }).render();
+                        });
+                    </script> <!-- End Activity and Recovery Score Chart -->
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Scores Related to Resting</h5>
+
+                <!-- Resting Score Chart -->
+                <div id="scoreRestingChart"></div>
+
+                <script>
+                        var y_scoreRestingHR = readinesses.map(x => x["scoreRestingHR"]);
+                        var y_scoreSleepBalance = readinesses.map(x => x["scoreSleepBalance"]);
+                        var y_scoreTemperature = readinesses.map(x => x["scoreTemperature"]);
+                        document.addEventListener("DOMContentLoaded", () => {
+                            new ApexCharts(document.querySelector("#scoreRestingChart"), {
+                                series: [
+                                {
+                                    name: "Resting HR",
+                                    type: 'area',
+                                    data: y_scoreRestingHR
+                                },
+                                {
+                                    name: "Sleep Balance",
+                                    type: 'area',
+                                    data: y_scoreSleepBalance
+                                },
+                                {
+                                    name: "Temperature Score",
+                                    type: 'area',
+                                    data: y_scoreTemperature
+                                }],
+                                chart: {
+                                    height: 400,
+                                    type: 'area',
+                                    zoom: {
+                                        enabled: true
+                                    }
+                                },
+                                colors: ['#ea6245', '#00E396', '#000000'],
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                stroke: {
+                                    curve: 'smooth'
+                                },
+                                grid: {
+                                    row: {
+                                        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                                        opacity: 0.5
+                                    },
+                                },
+                                xaxis: {
+                                    categories: x,
+                                    type: 'datetime'
+                                },
+                                legend: {
+                                    show: false
+                                }
+                            }).render();
+                        });
+                    </script> <!-- End Activity and Recovery Score Chart -->
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

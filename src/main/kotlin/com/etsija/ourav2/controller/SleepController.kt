@@ -24,4 +24,13 @@ class SleepController(private val service: SleepService) {
         model.addAttribute("sleeps", sleeps)
         return "sleep/table_sleep"
     }
+
+    @GetMapping("/graph_sleep")
+    fun getGraph(model: Model): String {
+
+        val sleeps = service.getAll()
+
+        model.addAttribute("sleeps", sleeps)
+        return "sleep/graph_sleep"
+    }
 }
