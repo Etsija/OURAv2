@@ -1,9 +1,8 @@
-package com.etsija.ourav2.datasource.network
+package com.etsija.ourav2.network
 
-import com.etsija.ourav2.datasource.ReadinessDataSource
-import com.etsija.ourav2.datasource.network.dto.ReadinessList
+import com.etsija.ourav2.network.dto.ReadinessList
 import com.etsija.ourav2.helpers.HttpHelpers
-import com.etsija.ourav2.model.Readiness
+import com.etsija.ourav2.domain.model.Readiness
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Repository
 import org.springframework.web.client.RestTemplate
 import java.io.IOException
 
-@Repository("network_readiness")
+@Repository()
 class NetworkReadinessDataSource(
     @Autowired private val restTemplate: RestTemplate
 ) : ReadinessDataSource {

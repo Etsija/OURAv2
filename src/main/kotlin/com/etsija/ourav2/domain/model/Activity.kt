@@ -1,4 +1,4 @@
-package com.etsija.ourav2.model
+package com.etsija.ourav2.domain.model
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class Activity(

@@ -1,6 +1,6 @@
 package com.etsija.ourav2.controller
 
-import com.etsija.ourav2.model.Readiness
+import com.etsija.ourav2.domain.model.Readiness
 import com.etsija.ourav2.service.ReadinessService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model

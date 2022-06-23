@@ -1,13 +1,12 @@
 package com.etsija.ourav2.service
 
 
-import com.etsija.ourav2.datasource.ActivityDataSource
-import com.etsija.ourav2.model.Activity
-import org.springframework.beans.factory.annotation.Qualifier
+import com.etsija.ourav2.network.ActivityDataSource
+import com.etsija.ourav2.domain.model.Activity
 import org.springframework.stereotype.Service
 
 @Service
-class ActivityService(@Qualifier("network_activity") private val dataSource: ActivityDataSource) {
+class ActivityService(private val dataSource: ActivityDataSource) {
 
     fun getAll(): Collection<Activity> = dataSource.retrieveAll()
 }

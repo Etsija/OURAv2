@@ -1,6 +1,6 @@
 package com.etsija.ourav2.controller
 
-import com.etsija.ourav2.model.Activity
+import com.etsija.ourav2.domain.model.Activity
 import com.etsija.ourav2.service.ActivityService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model

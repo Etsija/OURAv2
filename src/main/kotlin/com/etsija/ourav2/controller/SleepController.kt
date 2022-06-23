@@ -1,6 +1,6 @@
 package com.etsija.ourav2.controller
 
-import com.etsija.ourav2.model.Sleep
+import com.etsija.ourav2.domain.model.Sleep
 import com.etsija.ourav2.service.SleepService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
