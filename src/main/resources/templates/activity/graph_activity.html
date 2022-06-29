@@ -136,7 +136,7 @@
 
                     <script>
                         var y_kmTarget = activities.map(x => x["kmTarget"]);
-                        var y_kmToTarget = activities.map(x => x["kmToTarget"] * -1.0);
+                        var y_kmToTarget = activities.map(x => x["kmToTarget"]);
                         document.addEventListener("DOMContentLoaded", () => {
                             Chart.defaults.plugins.legend.display = false;
                             const colours = y_kmToTarget.map((value) => value < 0 ? 'red' : 'green');
@@ -197,8 +197,6 @@
                     <div id="kmChartTest"></div>
 
                     <script>
-                        var y_kmTarget = activities.map(x => x["kmTarget"]);
-                        var y_kmToTarget = activities.map(x => x["kmToTarget"] * -1.0);
                         document.addEventListener("DOMContentLoaded", () => {
                             new ApexCharts(document.querySelector("#kmChartTest"), {
                                 series: [

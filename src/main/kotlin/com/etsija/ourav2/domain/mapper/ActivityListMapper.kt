@@ -1,19 +1,17 @@
 package com.etsija.ourav2.domain.mapper
 
 import com.etsija.ourav2.domain.model.Activity
-import com.etsija.ourav2.network.dto.ActivityList
 import com.etsija.ourav2.network.response.ActivityResponse
-import com.etsija.ourav2.network.response.ActivityResponse2
 
 object ActivityListMapper {
 
-    fun buildFrom(response: ActivityResponse2): ActivityList {
+    fun buildFrom(response: Collection<ActivityResponse>): Collection<Activity> {
 
-        val thisMap: List<Activity> = response.activity.map {activity ->
+        val thisMap: Collection<Activity> = response.map {activity ->
             ActivityMapper.buildFrom(activity)
 
         }
-        return ActivityList(thisMap)
+        return thisMap
     }
 
 }

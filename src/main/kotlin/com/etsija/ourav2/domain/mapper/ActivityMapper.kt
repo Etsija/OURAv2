@@ -2,11 +2,10 @@ package com.etsija.ourav2.domain.mapper
 
 import com.etsija.ourav2.domain.model.Activity
 import com.etsija.ourav2.network.response.ActivityResponse
-import com.etsija.ourav2.network.response.ActivityResponse2
 
 object ActivityMapper {
 
-    fun buildFrom(response: ActivityResponse2.Activity): Activity {
+    fun buildFrom(response: ActivityResponse): Activity {
 
         val kmToTargetFlipped = response.to_target_km * -1.0
 

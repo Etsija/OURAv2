@@ -23,11 +23,17 @@
                 <script>
                         var x = sleeps.map(x => x["summaryDate"]);
                         var y_score = sleeps.map(x => x["score"]);
+                        var y_efficiency = sleeps.map(x => x["efficiency"]);
                         document.addEventListener("DOMContentLoaded", () => {
                             new ApexCharts(document.querySelector("#scoreChart"), {
-                                series: [{
+                                series: [
+                                {
                                     name: "Score",
                                     data: y_score
+                                },
+                                {
+                                    name: "Efficiency",
+                                    data: y_efficiency
                                 }],
                                 chart: {
                                     height: 400,
@@ -130,32 +136,32 @@
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Scores Related to Resting</h5>
+                <h5 class="card-title">HR and Breathing</h5>
 
                 <!-- Resting Score Chart -->
-                <div id="scoreRestingChart"></div>
+                <div id="scoreHRChart"></div>
 
                 <script>
-                        var y_scoreRestingHR = readinesses.map(x => x["scoreRestingHR"]);
-                        var y_scoreSleepBalance = readinesses.map(x => x["scoreSleepBalance"]);
-                        var y_scoreTemperature = readinesses.map(x => x["scoreTemperature"]);
+                        var y_breathAverage = sleeps.map(x => x["breathAverage"]);
+                        var y_hrAverage = sleeps.map(x => x["hrAverage"]);
+                        var y_hrLowest = sleeps.map(x => x["hrLowest"]);
                         document.addEventListener("DOMContentLoaded", () => {
-                            new ApexCharts(document.querySelector("#scoreRestingChart"), {
+                            new ApexCharts(document.querySelector("#scoreHRChart"), {
                                 series: [
                                 {
-                                    name: "Resting HR",
+                                    name: "Average breaths/min",
                                     type: 'area',
-                                    data: y_scoreRestingHR
+                                    data: y_breathAverage
                                 },
                                 {
-                                    name: "Sleep Balance",
+                                    name: "Average HR",
                                     type: 'area',
-                                    data: y_scoreSleepBalance
+                                    data: y_hrAverage
                                 },
                                 {
-                                    name: "Temperature Score",
+                                    name: "Lowest HR",
                                     type: 'area',
-                                    data: y_scoreTemperature
+                                    data: y_hrLowest
                                 }],
                                 chart: {
                                     height: 400,
