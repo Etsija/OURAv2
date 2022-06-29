@@ -4,29 +4,29 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class Activity(
 
     @JsonProperty("summary_date")
-    val summaryDate: String,
+    val summaryDate: String = "",
 
     @JsonProperty("target_calories")
-    val calTarget: Int,
+    val calTarget: Int = 0,
 
     @JsonProperty("cal_active")
-    val calActive: Int,
+    val calActive: Int = 0,
 
     @JsonProperty("cal_total")
-    val calTotal: Int,
+    val calTotal: Int = 0,
 
     @JsonProperty("target_km")
-    val kmTarget: Int,
+    val kmTarget: Double = 0.0,
 
     @JsonProperty("to_target_km")
-    val kmToTarget: Double,
+    var kmToTarget: Double = 0.0,
 
     @JsonProperty("steps")
-    val steps: Int,
+    val steps: Int = 0,
 
     @JsonProperty("daily_movement")
-    val dailyMovement: Int,
+    val dailyMovement: Int = 0,
 
     @JsonProperty("score")
-    val score: Int
+    val score: Int = 0
 )
