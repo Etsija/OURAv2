@@ -22,7 +22,7 @@ data class Sleep(
     val hrAverage: Double,
 
     @JsonProperty("hr_lowest")
-    val hrLowest: Int,
+    val hrLowest: Double,
 
     @JsonProperty("score")
     val score: Int
